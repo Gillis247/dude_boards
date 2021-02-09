@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Surfboard.create(name: "X-5000", details: "Rent my pro board now", price: 15,
+  available: "Yes", location: "Venice Beach")
+
+Surfboard.create(name: "Oklay", details: "I got sick surfboard you can rent", price: 13,
+  available: "Yes", location: "Miami Beach")
+
+Surfboard.create(name: "Nike Boost", details: "Rent a perfect beginner board", price: 10,
+  available: "No", location: "Barcelona Beach")
+
+Surfboard.create(name: "Le Wagon", details: "Surf like you surf the web, super-easy", price: 19,
+  available: "Yes", location: "Shorditch cannel")
+
+Surfboard.create(name: "Quicksilver Madness", details: "Advanced surfboard for pros", price: 25,
+  available: "No", location: "Tulum Beach")
+
+
