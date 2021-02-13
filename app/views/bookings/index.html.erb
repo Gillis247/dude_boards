@@ -1,8 +1,11 @@
+
 <ul>
 <% @bookings.each do |booking| %>
+    <h1>Booking list <%= booking.surfboard.name %></h1>
     <div>Has been booked by <%=booking.user.email%><li> From: <%=booking.startdate %> ||
     To: <%=booking.enddate %></li></div>
-<% end %>
+    <%=link_to "Manage booking", edit_surfboard_booking_path(booking.surfboard.id, booking.id) %>
+    <%= link_to "Cancel the booking", surfboard_booking_path(booking.surfboard.id, booking.id), method: :delete, data: { confirm: "You sure?" } %><% end %>
 </ul>
 
 <%= link_to "Explore our surfboards", surfboards_path %>
