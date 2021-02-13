@@ -1,0 +1,8 @@
+<ul>
+<% @bookings.each do |booking| %>
+    <div>Has been booked by <%=booking.user.email%><li> From: <%=booking.startdate %> ||
+    To: <%=booking.enddate %></li></div>
+<% end %>
+</ul>
+
+<%= link_to "Explore our surfboards", surfboards_path %>
