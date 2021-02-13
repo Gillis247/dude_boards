@@ -1,12 +1,12 @@
 <ul>
 <% @surfboards.each do |surfboard| %>
   <li>
-    <p> <%= surfboard.name %> </p>
+    <p> <%= link_to surfboard.name, surfboard_path(surfboard) %> </p>
     <p> <%= surfboard.details %> </p>
     <p> <%= surfboard.price %> </p>
   </li>
 <%end%>
  </ul>
 <div>
- <%= link_to "Create Surfboard", new_surfboard_path %>  
+ <%= link_to "Create Surfboard", new_surfboard_path %>
 </div>
