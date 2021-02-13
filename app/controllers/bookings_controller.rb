@@ -1,9 +1,5 @@
 class BookingsController < ApplicationController
 
-  def my_bookings
-    @booking.user = current_user
-    @booking.user = Booking.all
-  end
   def index
     @bookings = Booking.all
   end
@@ -29,15 +25,26 @@ class BookingsController < ApplicationController
   end
 
   def edit
-
+    @booking = Booking.find(params[:id])
   end
 
   def update
-
+    @booking = Booking.find(params[:id])
+    @booking.surfboard = Surfboard.find(params[:surfboard_id])
+    @booking.user = current_user
+    if @booking.update!(booking_params)
+      redirect_to surfboard_booking_path(@booking.surfboard.id, @booking.id)
+    else
+      render :new
+    end
   end
 
   def destroy
-
+    @booking = Booking.find(params[:id])
+    @booking.surfboard = Surfboard.find(params[:surfboard_id])
+    @booking.user = current_user
+    @booking.destroy
+    redirect_to surfboards_path
   end
 
   private
