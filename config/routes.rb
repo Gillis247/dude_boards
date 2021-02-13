@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :surfboards do 
     resources :bookings 
   end
+  #root to: 'surfboards#index'
 end
 
 
