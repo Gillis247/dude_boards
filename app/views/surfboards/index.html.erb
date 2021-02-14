@@ -1,12 +1,60 @@
-<ul>
-<% @surfboards.each do |surfboard| %>
-  <li>
-    <p> <%= link_to surfboard.name, surfboard_path(surfboard) %> </p>
-    <p> <%= surfboard.details %> </p>
-    <p> <%= surfboard.price %> </p>
-  </li>
-<%end%>
- </ul>
 <div>
- <%= link_to "Create Surfboard", new_surfboard_path %>
+  <div>
+    <h1 style="font-family: 'Londrina Solid', cursive; ">List of Surfboards</h1>
+    <% if user_signed_in? %>
+      <div style="font-family: 'Pacifico', cursive;">
+        <%= link_to "Add a new surfboard", new_surfboard_path, type: "button", class: "btn btn-primary mt-2" %>
+      </div>
+    <% else %>
+      <%= link_to "Add a new surfboard", new_user_session_path, type: "button", class: "btn btn-primary mt-2" %>
+    <% end %>
+  </div>
+
+
+  <div class="container pt-4">
+    <div class="row justify-content-center">
+      <% @surfboards.each do |surfboard| %>
+        <div class="col">
+          <div class="main-container">
+            <div class="cards">
+              <div class="garden">
+                <%= cl_image_tag surfboard.photo.key, height: 315, width: 323, crop: :fill %>
+              </div>
+            </div>
+            <div>
+              <strong class="card-text" style="font-family: 'Londrina Solid', cursive; color: #0E0000 "><%= link_to surfboard.name, surfboard_path(surfboard) %></strong>
+              <!--          <a href="<%#= product_path(product) %>"><%#= image_tag("picture_holder")%><a>-->
+              <p><%= surfboard.details %></p>
+              <div>
+                <div>
+                  <i class="fas fa-edit"><%= link_to "Edit me", edit_surfboard_path(surfboard) %></i>
+                  <div>
+                    <i class="fas fa-edit"><%= link_to "Delete me", surfboard_path(surfboard), method: :delete, data: { confirm: "You sure?" } %></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
+
+  <!--<p> </p>-->
+  <!--style="color: #0E0000; font-family: 'Pacifico', cursive;"-->
+
+
+  <!--<ul>-->
+<%# @surfboards.each do |surfboard| %>
+  <!--  <li>-->
+  <!--    <p> <%#= link_to surfboard.name, surfboard_path(surfboard) %> </p>-->
+  <!--    <p> <%#= surfboard.details %> </p>-->
+  <!--    <p> <%#= surfboard.price %> </p>-->
+  <!--  </li>-->
+<%#end%>
+  <!-- </ul>-->
+  <!--<div>-->
+  <%#= link_to "Create Surfboard", new_surfboard_path %>
+  <!--</div>-->
 </div>

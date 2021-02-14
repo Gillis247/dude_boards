@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get 'surfboards/search'
+  get 'surfboards/not_found'
   resources :surfboards do 
     resources :bookings 
   end

@@ -1,14 +1,75 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <p class="auto_type">
+        <span id="banner-typed-text"></span>
+      </p>
+      <%= cl_image_tag("little-plant-RMXIn292QSs-unsplash_ryj3hj", width: 1520, height: 600, crop: :fill) %>
+    </div>
+    <div class="carousel-item">
+      <%= cl_image_tag("don-stouder-s3BLxJ7_FvU-unsplash_ecjopm", width: 1520, height: 600, crop: :fill) %>
+    </div>
+    <div class="carousel-item">
+      <%= cl_image_tag("jakob-owens-nmXwoDphQGs-unsplash_nxa9w3", width: 1520, height: 600, crop: :fill) %>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
-<div class= "container">
-  <div class= "row justify-content-center">
-    <div class= "col-6">
-      <h1>Pages#home</h1>
-      <p>Find me in app/views/pages/home.html.erb</p>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      <% if user_signed_in? %>
-       <%= current_user.email %>
-      <% end %><br>
-      <%= link_to "Explore our surfboards", surfboards_path %>
+
+
+
+<div class="album text-muted">
+  <div class="container">
+    <div class="row-index row">
+      <% @surfboards.each do |surfboard| %>
+        <div class="col-sm-12 col-md-4 ">
+          <div class="card-index" style="border: 4px solid black; box-shadow: #2E2F30">
+            <%= cl_image_tag surfboard.photo.key, height: 280, width: 320, crop: :fill %>
+            <div>
+              <strong class="card-text_index" style="font-family: 'Londrina Solid', cursive; color: #0E0000 "><%= link_to surfboard.name, surfboard_path(surfboard) %></strong>
+              <!--          <a href="<%#= product_path(product) %>"><%#= image_tag("picture_holder")%><a>-->
+              <p><%= surfboard.details %></p>
+              <div class="card-foot">
+                <div class="foot edit" ><i class="fas fa-edit"><%= link_to "Edit me", edit_surfboard_path(surfboard) %></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+      </div>
     </div>
   </div>
 </div>
+
+
+
+<!--<div class= "container">-->
+<!--  <div class= "row justify-content-center">-->
+<!--    <div class= "col-6">-->
+<!--      <h1>Pages#home</h1>-->
+<!--      <p>Find me in app/views/pages/home.html.erb</p>-->
+      <%#= link_to "Log out", destroy_user_session_path, method: :delete %>
+      <%# if user_signed_in? %>
+       <%#= current_user.email %>
+<!--      <%# end %><br>-->
+      <%#= link_to "Explore our surfboards", surfboards_path %>
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
