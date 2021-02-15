@@ -1,0 +1,24 @@
+<div class="container mt-3">
+  <h1>My Bookings</h1>
+  <h3>You have <%= @new_booking.count %> new booking<%=@new_booking.count == 1 ? '' : 's'%><%= @new_booking.count > 0 ? ':' : '' %></h3>
+
+  <div>
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <% @new_booking.each do |booking| %>
+          <%= render 'shared/booking', booking: booking %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <h3>Previous bookings</h3>
+  <div>
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <% @old_booking.each do |booking| %>
+          <%= render 'shared/booking', booking: booking %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

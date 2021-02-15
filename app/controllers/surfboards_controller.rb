@@ -1,12 +1,18 @@
 class SurfboardsController < ApplicationController
-  before_action :set_surfboard, only: [:show, :edit, :update, :destroy]
- 
+  before_action :set_surfboard, only: %i[show edit update destroy]
+
   def index
     @surfboards = Surfboard.all
+    @markers = @surfboards.geocoded.map do |surfboard|
+      {
+        lat: surfboard.latitude,
+        lng: surfboard.longitude,
+        info_Window: render_to_string(partial: "info_window", locals: { surfboard: surfboard })
+      }
+    end
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @surfboard = Surfboard.new
@@ -25,7 +31,8 @@ class SurfboardsController < ApplicationController
   def edit; end
 
   def update
-    @surfboard.update(params[:surfboard])
+    @surfboard.update(surfboard_params)
+    redirect_to surfboard_path(@surfboard)
   end
 
   def destroy
@@ -43,6 +50,7 @@ class SurfboardsController < ApplicationController
       redirect_to surfboards_not_found_path
     end
   end
+
   private
 
   def surfboard_params

@@ -28,6 +28,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="twitter-bootstrap" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actioncable (v6.0.3.4, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionmailbox (v6.0.3.4, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionmailer (v6.0.3.4, rbenv: 2.6.6) [gem]" level="application" />
@@ -62,6 +63,7 @@
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.7.0, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.14.2, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="font-awesome-sass (v5.15.1, rbenv: 2.6.6) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="geocoder (v1.6.5, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.4.2, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="http-accept (v1.7.0, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="http-cookie (v1.0.3, rbenv: 2.6.6) [gem]" level="application" />

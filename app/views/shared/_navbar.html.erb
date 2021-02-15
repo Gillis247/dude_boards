@@ -1,26 +1,25 @@
 <nav role="navigation" class="primary-navigation">
   <ul>
     <li><%= link_to "Home", root_path %></li>
-    <li><a href="#">Surfboards &dtrif;</a>
+    <li><%= link_to "Discover our new range", surfboards_path %></li>
+    <li><a href="#">My Account &dtrif;</a>
       <ul class="dropdown">
-        <li><%= link_to "Discover our new range", surfboards_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to "Rent your surfboard", surfboards_path %></li>
         <% else %>
           <li><%= link_to "Rent your surfboard", new_user_session_path %></li>
         <% end %>
         <% if user_signed_in? %>
-          <li><%= link_to "Manage my bookings", surfboards_path %></li>
+          <li><%= link_to "Manage my bookings", my_bookings_bookings_path %></li>
         <% else %>
           <li><%= link_to "Manage my bookings", new_user_session_path %></li>
         <% end %>
+        <% if user_signed_in? %> <li><i class="fas fa-sign-out-alt"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li></i>
+        <% else %> <li><i class="fas fa-sign-in-alt"><%= link_to "Login", new_user_session_path %></li></i>
+        <% end %>
       </ul>
     </li>
-    <% if user_signed_in? %>
-      <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
-    <% else %>
-      <li><%= link_to "Login", new_user_session_path, class: "nav-link" %></li>
-    <% end %>
+
     <li><%= form_tag surfboards_search_path, method: :get do |f| %>
         <%= text_field_tag :search, params[:search], placeholder: "Find your surfboard" %>
         <%= submit_tag 'Search' %>

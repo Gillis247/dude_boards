@@ -6,10 +6,13 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <p class="auto_type">
-        <span id="banner-typed-text"></span>
-      </p>
-      <%= cl_image_tag("little-plant-RMXIn292QSs-unsplash_ryj3hj", width: 1520, height: 600, crop: :fill) %>
+      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dhj0qswpc/image/upload/v1613267575/little-plant-RMXIn292QSs-unsplash_ryj3hj.jpg); width: 1520px; height: 600px; background-position: center; background-size: cover">
+        <div class="container">
+          <h1>Dude Boards brings <strong>people</strong> together </h1>
+          <p>Find the surfboard you need at any time..any city around the world.</p>
+          <%= link_to "Dude Board now", surfboards_path, type: "button", class: "btn btn-primary mt-2"  %>
+        </div>
+      </div>
     </div>
     <div class="carousel-item">
       <%= cl_image_tag("don-stouder-s3BLxJ7_FvU-unsplash_ecjopm", width: 1520, height: 600, crop: :fill) %>
@@ -30,21 +33,21 @@
 
 
 
-
+<h2 style="text-align: center;margin-top: 90px"><strong>Most featured Dude Boards</strong></h2>
 <div class="album text-muted">
   <div class="container">
     <div class="row-index row">
       <% @surfboards.each do |surfboard| %>
         <div class="col-sm-12 col-md-4 ">
           <div class="card-index" style="border: 4px solid black; box-shadow: #2E2F30">
-            <%= cl_image_tag surfboard.photo.key, height: 280, width: 320, crop: :fill %>
+            <a href="<%= surfboard_path(surfboard) %>"><%= cl_image_tag surfboard.photo.key, height: 280, width: 312, crop: :fill %></a>
             <div>
-              <strong class="card-text_index" style="font-family: 'Londrina Solid', cursive; color: #0E0000 "><%= link_to surfboard.name, surfboard_path(surfboard) %></strong>
+              <h3><strong class="card-text_index" style="font-family: 'Londrina Solid', cursive; color: #0E0000 "><%= surfboard.name%></strong></h3>
               <!--          <a href="<%#= product_path(product) %>"><%#= image_tag("picture_holder")%><a>-->
               <p><%= surfboard.details %></p>
+              <h5>£<%= surfboard.price %> per day</h5>
+              <h5><%= surfboard.location %></h5>
               <div class="card-foot">
-                <div class="foot edit" ><i class="fas fa-edit"><%= link_to "Edit me", edit_surfboard_path(surfboard) %></i>
-                </div>
               </div>
             </div>
           </div>
