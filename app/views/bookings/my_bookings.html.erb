@@ -1,11 +1,11 @@
 <div class="container mt-3">
   <h1>My Bookings</h1>
-  <h3>You have <%= @new_booking.count %> new booking<%=@new_booking.count == 1 ? '' : 's'%><%= @new_booking.count > 0 ? ':' : '' %></h3>
+  <h3><%= @current_bookings.count %> current booking<%=@current_bookings.count == 1 ? '' : 's'%></h3>
 
   <div>
     <div class="row justify-content-center">
       <div class="col-8">
-        <% @new_booking.each do |booking| %>
+        <% @current_bookings.each do |booking| %>
           <%= render 'shared/booking', booking: booking %>
         <% end %>
       </div>
@@ -15,7 +15,7 @@
   <div>
     <div class="row justify-content-center">
       <div class="col-8">
-        <% @old_booking.each do |booking| %>
+        <% @old_bookings.each do |booking| %>
           <%= render 'shared/booking', booking: booking %>
         <% end %>
       </div>

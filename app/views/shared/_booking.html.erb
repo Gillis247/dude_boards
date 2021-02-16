@@ -1,13 +1,15 @@
 <div>
   <%= cl_image_tag booking.surfboard.photo.key, height: 280, width: 312, crop: :fill %>
   <div>
-    <h3>Has been rented from <%= booking.surfboard.user.email %></h3>
+    <h3>Has been rented from <%= booking.surfboard.owner.username %></h3>
     <div>
 
       <% if booking.startdate > DateTime.now %>
         <div>
-          <p><em><%= booking.approved ? 'confirmed' : 'pending confirmation' %></em></p>
+          <h4><strong><%= booking.approved ? 'confirmed' : 'pending confirmation' %></strong></h4>
         </div>
+        <%#= booking.surfboard.price * (booking.enddate - booking.startdate).to_i %>
+
       <% end %>
     </div>
     <p><%= booking.startdate %> - <%= booking.enddate %></p>
@@ -15,7 +17,7 @@
       <%= link_to 'cancel booking',
                   booking_path(booking),
                   method: :delete,
-                  data: { confirm: "Please confirm if you want to cancel your booking?" }  %>
+                  data: { confirm: "Please press ok if you want to cancel your booking or cancel to go back to your booking" }  %>
     <% end %>
   </div>
 </div>

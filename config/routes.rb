@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'surfboards/not_found'
   resources :surfboards do
     resources :bookings, only: [:new, :create]
+    collection do
+      get :my_surfboards
+    end
   end
   #root to: 'surfboards#index'
 

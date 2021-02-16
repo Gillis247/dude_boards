@@ -1,4 +1,4 @@
-<% if current_user == @surfboard.user %>
+<% if current_user == @surfboard.owner %>
 <%= render "shared/form"  %>
   <% else %>
   <H2>ACCESS DENIED, CONTACT THE ADMIN IF YOU WOULD LIKE TO CHANGE IT</H2>

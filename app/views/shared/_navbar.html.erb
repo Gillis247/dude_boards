@@ -5,7 +5,7 @@
     <li><a href="#">My Account &dtrif;</a>
       <ul class="dropdown">
         <% if user_signed_in? %>
-          <li><%= link_to "Rent your surfboard", surfboards_path %></li>
+          <li><%= link_to "Rent your surfboard", my_surfboards_surfboards_path %></li>
         <% else %>
           <li><%= link_to "Rent your surfboard", new_user_session_path %></li>
         <% end %>

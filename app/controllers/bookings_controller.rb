@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.surfboard = Surfboard.find(params[:surfboard_id])
-    @booking.user = current_user
+    @booking.client = current_user
     if @booking.save!
       redirect_to booking_path(@booking)
     else
@@ -31,7 +31,7 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.surfboard = Surfboard.find(params[:surfboard_id])
-    @booking.user = current_user
+    @booking.client = current_user
     if @booking.update!(booking_params)
       redirect_to surfboards_path
     else
@@ -41,13 +41,13 @@ class BookingsController < ApplicationController
 
   def my_bookings
     now = DateTime.now
-    @new_booking = current_user.bookings.where("startdate > ?", now)
-    @old_booking = current_user.bookings.where("startdate < ?", now)
+    @current_bookings = current_user.bookings.where("enddate > ?", now)
+    @old_bookings = current_user.bookings.where("enddate < ?", now)
   end
 
   def destroy
     @booking = Booking.find(params[:id])
-    @booking.user = current_user
+    @booking.client = current_user
     @booking.destroy
     redirect_to my_bookings_bookings_path
   end

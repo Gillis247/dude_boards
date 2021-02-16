@@ -3,5 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :bookings
+
+  has_many :surfboards, dependent: :destroy, inverse_of: 'owner'
+  has_many :bookings, dependent: :destroy, inverse_of: 'client'
 end

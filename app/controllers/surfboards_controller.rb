@@ -20,7 +20,7 @@ class SurfboardsController < ApplicationController
 
   def create
     @surfboard = Surfboard.new(surfboard_params)
-    @surfboard.user = current_user
+    @surfboard.owner = current_user
     if @surfboard.save!
       redirect_to surfboard_path(@surfboard)
     else
@@ -41,14 +41,19 @@ class SurfboardsController < ApplicationController
   end
 
   def search
-    search = params.fetch(:search).downcase
+    search_keyword = params.fetch(:search).downcase
     # TODO if search else alert
-    result = Surfboard.where('name LIKE ?', "%#{search}%")
+    # select * from surfboard.name LIKE '%SEARCH_KEYWORD%'
+    result = Surfboard.where('name LIKE ?', "%#{search_keyword}%")
     if result.present?
       @surfboard = result.take
     else
       redirect_to surfboards_not_found_path
     end
+  end
+
+  def my_surfboards
+    @surfboards = current_user.surfboards
   end
 
   private
