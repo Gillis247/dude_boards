@@ -1,0 +1,320 @@
+// Place all the styles related to the cocktails controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.surfboard_page {
+  margin-bottom: 5.5rem;
+}
+
+.album {
+  margin-bottom: 5.5rem;
+}
+
+
+.mt-2 {
+  color: black;
+  background-color: #d4c8be;
+  border: lightgray;
+
+  &:hover {
+    background-color: #c7c7bb;
+  }
+}
+
+
+@media screen and (min-width: 375px) and (max-width: 400px) {
+  .auto_type {
+    font-size: 0.8rem;
+    top: 150px;
+  }
+  .carousel-item {
+    height: 250px;
+  }
+}
+
+
+@media screen and (min-width: 410px) and (max-width: 420px) {
+  .auto_type {
+    font-size: 1rem;
+    top: 200px;
+
+  }
+
+  .carousel-item {
+    height: 300px;
+  }
+}
+
+@media screen and (min-width: 1245px) and (max-width: 1345px) {
+  .carousel-item {
+    height: 500px;
+  }
+}
+
+
+
+.card:hover {
+  -ms-transform: scale(1); /* IE 9 */
+  -webkit-transform: scale(1); /* Safari 3-8 */
+  transform: scale(1.15);
+  transform: scale(1.15);
+}
+
+
+.card {
+  float: left;
+  width: 33.333%;
+  padding: .75rem;
+  margin-bottom: 2rem;
+  border: 0;
+}
+
+.card > img {
+  margin-bottom: .75rem;
+  gap: 20px;
+}
+
+.card-text_index a {
+  font-size: x-large;
+  color: #0E0000;
+  width: 160px;
+  text-align: center;
+
+}
+
+.card:hover {
+  -ms-transform: scale(1); /* IE 9 */
+  -webkit-transform: scale(1); /* Safari 3-8 */
+  transform: scale(1.05);
+}
+
+.card {
+  float: left;
+  width: 33.333%;
+  padding: .75rem;
+  margin-bottom: 2rem;
+  border: 0;
+}
+
+.card > img {
+  margin-bottom: .75rem;
+  gap: 20px;
+}
+
+.text-muted {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-foot {
+  text-align: center;
+}
+
+.foot {
+  color: black;
+  margin-left: 38px;
+  margin-right: 38px;
+  text-align: center;
+  display: inline-block;
+}
+
+.foot a:hover {
+  border: 3px dashed lightgray;
+  text-decoration: none;
+}
+
+.foot a {
+  color: black;
+}
+
+.edit:hover {
+  border: lightgray;
+  font-style: italic;
+
+  color: #0E0000;
+}
+
+.delete:hover {
+  border: lightgray;
+  font-style: italic;
+  color: #0E0000;
+  background-color: lightpink;
+}
+
+.row-index {
+  margin-right: -15px;
+  margin-left: -15px;
+
+}
+
+.card-index {
+  padding: .75rem;
+  margin-bottom: 2rem;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 2px;
+}
+
+
+.card-index:hover {
+  -ms-transform: scale(1); /* IE 9 */
+  -webkit-transform: scale(1); /* Safari 3-8 */
+  transform: scale(1.05);
+}
+
+.card-image {
+  height: 315px;
+  width: 354px;
+  crop: auto;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 30px 0;
+}
+
+td {
+  padding: 10px 0;
+  text-align: center;
+}
+
+
+th {
+  text-align: center;
+}
+
+.image-container {
+  display: inline-block;
+  vertical-align: top;
+  width: 46%;
+  margin: 20px 73px 0 57px;
+}
+
+.text-container {
+  display: inline-block;
+  width: 100%;
+  margin-top: 40px;
+
+}
+
+p a{
+  word-break: keep-all;
+}
+
+@media (max-width: 620px) {
+  .text-container {
+    width: 100%;
+  }
+}
+
+.simple_form {
+  padding: 40px;
+}
+
+
+#form1 {
+  position: absolute;
+  left: 177px;
+  top: 600px;
+}
+
+@media screen and (min-width: 375px) and (max-width: 400px) {
+  .new-title {
+    font-size: 1.5em;
+    text-align: center;
+    margin-left: 196px;
+  }
+  #new_cocktail {
+    position: absolute;
+    left: 18px;
+    padding: 0px;
+    top: 86px;
+  }
+
+  .loading {
+    color: #af9f8c;
+    position: unset;
+    font-size: 36px;
+  }
+
+  .footer {
+    left: 15px;
+  }
+}
+
+.not-found-page{
+  position: relative;
+  top: 100px;
+  justify-content: center;
+  left: 151px;
+}
+
+.message-not-found{
+  font-family: 'Londrina Solid', cursive; color: #0E0000; font-size: 4em
+}
+
+
+@media screen and (min-width: 375px) and (max-width: 400px) {
+  .card-index img {
+    width: 320px;
+  }
+}
+
+.delete-icon:hover{
+  background-color: #7f867b;
+}
+
+.fa-trash-alt{
+  transform: scale(1.15,1.15);
+  /* property values: name, duration, iteration, timing-function */
+  animation: jiggle 0.5s infinite linear;
+}
+
+@keyframes jiggle {
+  /* start at 0deg and this scale size.
+     scale size is repeated here to maintain smooth scaling */
+  0% {transform: rotate(0deg) scale(1.15,1.15);}
+  /* midway rotate 2deg right */
+  50% {transform: rotate(4deg) scale(1.15,1.15);}
+  /* end rotate -2deg left */
+  100% {transform: rotate(-2deg) scale(1.15,1.15)}
+}
+
+@media screen and (min-width: 375px) and (max-width: 400px) {
+  .not-found-page{
+    position: unset;
+    top: 0px;
+    left: 0px;
+  }
+  strong > .message-not-found {
+    font-size: 2.3em;
+    margin-left: 47px;
+  }
+
+  .not-found-page img {
+    width: 200px;
+    height: 250px;
+  }
+}
+
+.image-recipe{
+
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+.search-header{
+  text-align: center; font-family: 'Londrina Solid', cursive; font-size: 100px
+}
+
+@media screen and (min-width: 375px) and (max-width: 400px) {
+  .search-header {
+    font-size: 63px;
+  }
+
+  .image-container{
+    margin: 0 auto;
+  }
+}
+
+

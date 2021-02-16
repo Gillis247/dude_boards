@@ -1,6 +1,9 @@
 class Surfboard < ApplicationRecord
-  belongs_to :user
-  has_many :bookings
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
+  belongs_to :owner, class_name: 'User', foreign_key: 'user_id'
+  has_many :bookings, dependent: :destroy
+  has_one_attached :photo
   #validates :name, :details, :price, :location, presence: true
   #validates :name, uniqueness: true
   #validates :available, inclusion: { in: [ true, false ] }

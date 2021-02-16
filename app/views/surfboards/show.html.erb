@@ -1,6 +1,46 @@
-<%= @surfboard.name %>
-<%= @surfboard.details %>
-<%= @surfboard.price %>
-<%= @surfboard.location %>
+<%#= @surfboard.name %>
+<%#= @surfboard.details %>
+<%#= @surfboard.price %>
+<%#= @surfboard.location %>
+<%#= cl_image_tag @surfboard.photo.key, height: 315, width: 323, crop: :fill %>
 
-<%= link_to "Book it", new_surfboard_booking_path(@surfboard)%>
+
+
+<div class="container pt-4">
+  <div class="row justify-content-center">
+    <div class="col">
+      <div class="main-container">
+        <div class="cards">
+          <div class="garden">
+            <%= cl_image_tag @surfboard.photo.key, height: 315, width: 323, crop: :fill %>
+          </div>
+        </div>
+        <div>
+          <strong class="card-text" style="font-family: 'Londrina Solid', cursive; color: #0E0000 "><%= @surfboard.name %></strong>
+          <!--          <a href="<%#= product_path(product) %>"><%#= image_tag("picture_holder")%><a>-->
+          <p><%= @surfboard.details %></p>
+          <% @surfboard.price %>
+          <%= @surfboard.location %>
+          <div>
+            <div>
+              <i class="fas fa-edit"><%= link_to "Edit me", edit_surfboard_path(@surfboard) %></i>
+              <div>
+                <i class="fas fa-edit"><%= link_to "Delete me", surfboard_path(@surfboard), method: :delete, data: { confirm: "You sure?" } %></i>
+              </div>
+              <% if user_signed_in? %>
+                <div class="navbar-cocktail">
+                  <%= link_to "Book it", new_surfboard_booking_path(@surfboard), type: "button", class: "btn btn-primary mt-2" %>
+                </div>
+                <div style="font-family: 'Pacifico', cursive;">
+              <% else %>
+                <%= link_to "Book it", new_user_session_path, type: "button", class: "btn btn-primary mt-2" %>
+              <% end %>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

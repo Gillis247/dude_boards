@@ -1,12 +1,69 @@
-<ul>
-<% @surfboards.each do |surfboard| %>
-  <li>
-    <p> <%= link_to surfboard.name, surfboard_path(surfboard) %> </p>
-    <p> <%= surfboard.details %> </p>
-    <p> <%= surfboard.price %> </p>
-  </li>
-<%end%>
- </ul>
-<div>
- <%= link_to "Create Surfboard", new_surfboard_path %>
+<div class="surfboard_page">
+  <% if user_signed_in? %>
+    <div class="navbar-cocktail">
+      <%= link_to "Add a new surfboard", new_surfboard_path, type: "button", class: "btn btn-primary mt-2" %>
+    </div>
+    <h1 style="font-family: 'Londrina Solid', cursive; ">List of surfboards</h1>
+    <div style="font-family: 'Pacifico', cursive;">
+  <% else %>
+    <%= link_to "Add a new surfboard", new_user_session_path, type: "button", class: "btn btn-primary mt-2" %>
+  <% end %>
+  </div>
+
+
+  <div class="album text-muted">
+    <div class="container">
+      <div class="row-index row">
+        <% @surfboards.each do |surfboard| %>
+          <div class="col-sm-12 col-md-4 ">
+            <div class="card-index" style="border: 4px solid black; box-shadow: #2E2F30">
+              <a href="<%= surfboard_path(surfboard) %>"><%= cl_image_tag surfboard.photo.key, height: 280, width: 312, crop: :fill %></a>
+              <div>
+                <strong class="card-text_index" style="font-family: 'Londrina Solid', cursive; color: #0E0000 "><%= link_to surfboard.name, surfboard_path(surfboard) %></strong>
+                <!--          <a href="<%#= product_path(product) %>"><%#= image_tag("picture_holder")%><a>-->
+                <p><%= surfboard.details %></p>
+                <h5>£<%= surfboard.price %> per hour</h5>
+                <h5><%= surfboard.location %></h5>
+
+                <div class="card-foot">
+                  <div class="foot edit" style="background-color: #d4c8be">
+                    <i class="fas fa-edit"><%= link_to "Edit me", edit_surfboard_path(surfboard) %></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="map"
+       style="width: 100%; height: 600px;"
+       data-markers="<%= @markers.to_json %>">
+<!--       data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">-->
+  </div>
+
+  <!--<p> </p>-->
+  <!--style="color: #0E0000; font-family: 'Pacifico', cursive;"-->
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
