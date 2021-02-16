@@ -41,8 +41,8 @@ class BookingsController < ApplicationController
 
   def my_bookings
     now = DateTime.now
-    @current_bookings = current_user.bookings.where("enddate > ?", now)
-    @old_bookings = current_user.bookings.where("enddate < ?", now)
+    @current_bookings = current_user.bookings.where("end_date > ?", now)
+    @old_bookings = current_user.bookings.where("end_date < ?", now)
   end
 
   def destroy
@@ -55,6 +55,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:surfboard_id, :user_id, :status, :startdate, :enddate)
+    params.require(:booking).permit(:surfboard_id, :user_id, :status, :start_date, :end_date)
   end
 end

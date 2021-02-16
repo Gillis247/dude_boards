@@ -20,11 +20,21 @@ const initMapbox = () => {
         .setPopup(new mapboxgl.Popup({offset: 25}))
         // .setHTML(marker.infoWindow.content))
         .addTo(map);
+
+      const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundImage = `url('${marker.image_url}')`;
+      element.style.backgroundSize = 'contain';
+      element.style.width = '50px';
+      element.style.height = '50px';
     });
+
+
     map.addControl(new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl
     }));
+
     //
     if (markers.length === 0) {
       map.setZoom(1);

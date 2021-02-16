@@ -5,7 +5,6 @@
 <%#= cl_image_tag @surfboard.photo.key, height: 315, width: 323, crop: :fill %>
 
 
-<%= link_to "Book it", new_surfboard_booking_path(@surfboard) %>
 
 <div class="container pt-4">
   <div class="row justify-content-center">
@@ -28,6 +27,16 @@
               <div>
                 <i class="fas fa-edit"><%= link_to "Delete me", surfboard_path(@surfboard), method: :delete, data: { confirm: "You sure?" } %></i>
               </div>
+              <% if user_signed_in? %>
+                <div class="navbar-cocktail">
+                  <%= link_to "Book it", new_surfboard_booking_path(@surfboard), type: "button", class: "btn btn-primary mt-2" %>
+                </div>
+                <div style="font-family: 'Pacifico', cursive;">
+              <% else %>
+                <%= link_to "Book it", new_user_session_path, type: "button", class: "btn btn-primary mt-2" %>
+              <% end %>
+              </div>
+
             </div>
           </div>
         </div>

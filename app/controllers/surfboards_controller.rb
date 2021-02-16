@@ -2,12 +2,17 @@ class SurfboardsController < ApplicationController
   before_action :set_surfboard, only: %i[show edit update destroy]
 
   def index
-    @surfboards = Surfboard.all
+    if params[:search].present?
+      @surfboards = Surfboard.where("name ILIKE :search OR location ILIKE :search", search: "%#{params[:search]}%")
+    else
+      @surfboards = Surfboard.all
+    end
     @markers = @surfboards.geocoded.map do |surfboard|
       {
         lat: surfboard.latitude,
         lng: surfboard.longitude,
-        info_Window: render_to_string(partial: "info_window", locals: { surfboard: surfboard })
+        infoWindow: render_to_string(partial: "info_window", locals: { surfboard: surfboard }),
+        image_url: helpers.asset_url('https://www.freepik.com/vectors/icons')
       }
     end
   end
@@ -40,17 +45,17 @@ class SurfboardsController < ApplicationController
     redirect_to surfboards_path
   end
 
-  def search
-    search_keyword = params.fetch(:search).downcase
-    # TODO if search else alert
-    # select * from surfboard.name LIKE '%SEARCH_KEYWORD%'
-    result = Surfboard.where('name LIKE ?', "%#{search_keyword}%")
-    if result.present?
-      @surfboard = result.take
-    else
-      redirect_to surfboards_not_found_path
-    end
-  end
+  # def search
+  #   search_keyword = params.fetch(:search)
+  #   # TODO if search else alert
+  #   # select * from surfboard.name LIKE '%SEARCH_KEYWORD%'
+  #   result = Surfboard.where('name ILIKE ?', "%#{search_keyword}%")
+  #   if result.present?
+  #     @surfboard = result
+  #   else
+  #     redirect_to surfboards_not_found_path
+  #   end
+  # end
 
   def my_surfboards
     @surfboards = current_user.surfboards
@@ -60,8 +65,7 @@ class SurfboardsController < ApplicationController
 
   def surfboard_params
     surfboard_params = params.require(:surfboard).permit(:name, :details, :price, :photo, :location, :search)
-    surfboard_params.fetch(:name, '').downcase!
-    surfboard_params
+
   end
 
   def set_surfboard

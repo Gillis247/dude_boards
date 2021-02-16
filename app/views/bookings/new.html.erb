@@ -2,8 +2,8 @@
 <h1>New booking for <%= @surfboard.name %></h1>
   <%= simple_form_for [@surfboard, @booking] do |f| %>
     <%= f.label :book_your_dates %>
-    <%= f.datetime_select :startdate %>
-    <%= f.datetime_select :enddate %>
+    <%= f.datetime_select :start_date %>
+    <%= f.datetime_select :end_date %>
     <%= f.submit "book", class: "btn btn-primary mt-2" %>
   <% end %>
 </div>
