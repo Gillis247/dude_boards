@@ -1,33 +1,83 @@
-<nav role="navigation" class="primary-navigation">
-  <ul>
-    <li><%= link_to "Home", root_path %></li>
-    <li><%= link_to "Discover our new range", surfboards_path %></li>
-    <li><a href="#">My Account &dtrif;</a>
-      <ul class="dropdown">
-        <% if user_signed_in? %>
-          <li><%= link_to "Rent your surfboard", my_surfboards_surfboards_path %></li>
-        <% else %>
-          <li><%= link_to "Rent your surfboard", new_user_session_path %></li>
-        <% end %>
-        <% if user_signed_in? %>
-          <li><%= link_to "Manage my bookings", my_bookings_bookings_path %></li>
-        <% else %>
-          <li><%= link_to "Manage my bookings", new_user_session_path %></li>
-        <% end %>
-        <% if user_signed_in? %> <li><i class="fas fa-sign-out-alt"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li></i>
-        <% else %> <li><i class="fas fa-sign-in-alt"><%= link_to "Login", new_user_session_path %></li></i>
-        <% end %>
-      </ul>
-    </li>
 
-    <li><%= form_tag surfboards_path, method: :get do |f| %>
-        <%= text_field_tag :search, params[:search], placeholder: "Find your surfboard" %>
-        <%= submit_tag 'Search' %>
-      <% end %> </li>
-  </ul>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="navbar navbar-left">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "https://res.cloudinary.com/dhj0qswpc/image/upload/v1613676991/DudeBoardsLogo.png" %>
+      <% end %>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
 
-</nav>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+        <li class="nav-item active">
+          <%= link_to "Discover", surfboards_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Home", root_path, class: "nav-link" %>
+        </li>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <li class="nav-item dropdown">
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Messages", class: "dropdown-item" %>
+            <%= link_to "Listings", my_surfboards_surfboards_path, class: "dropdown-item" %>
+            <%= link_to "Listings request", class: "dropdown-item" %>
+            <%= link_to "Manage my bookings", my_bookings_bookings_path, class: "dropdown-item" %>
+            <%= link_to "Account", class: "dropdown-item" %>
+            <%= link_to "Help", class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% else %>
+         <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-info private log-in" %>
+         </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!--<nav role="navigation" class="primary-navigation">-->
+<!--    <ul>-->
+<!--      <li><%= link_to "Home", root_path %></li>-->
+<!--      <li><%= link_to "Discover our new range", surfboards_path %></li>-->
+<!--      <li><a href="#">My Account &dtrif;</a>
+<!--        <ul class="dropdown">-->
+<!--          <% if user_signed_in? %>-->
+<!--            <li><%= link_to "Rent your surfboard", my_surfboards_surfboards_path %></li>
+<!--          <% else %>
+<!--            <li><%= link_to "Rent your surfboard", new_user_session_path %></li>
+<!--          <% end %>
+<!--          <% if user_signed_in? %>
+<!--            <li><%= link_to "Manage my bookings", my_bookings_bookings_path %></li>
+<!--          <% else %>
+<!--            <li><%= link_to "Manage my bookings", new_user_session_path %></li>
+<!--          <% end %>
+<!--          <% if user_signed_in? %> <li><i class="fas fa-sign-out-alt"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li></i>
+<!--          <% else %> <li><i class="fas fa-sign-in-alt"><%= link_to "Login", new_user_session_path %></li></i>
+<!--          <% end %>-->
+<!--        </ul>-->
+<!--      </li>-->
+<!---->
+<!--      <li><%= form_tag surfboards_path, method: :get do |f| %>-->
+<!--          <%= text_field_tag :search, params[:search], placeholder: "Find your surfboard" %>-->
+<!--          <%= submit_tag 'Search' %>-->
+<!--        <% end %> </li>-->
+<!--    </ul>-->
+<!--</nav>-->
+
 
 
 <!--<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">-->
