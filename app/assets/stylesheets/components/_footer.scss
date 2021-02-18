@@ -61,14 +61,11 @@
   margin-top:22px;
   color:inherit;
   opacity:0.75;
-  opacity: 0.6;
-  
 }
 
 .footer-clean .item.social > a:hover {
   opacity:0.9;
-  opacity: 1;
-  }
+}
 
 @media (max-width:991px) {
   .footer-clean .item.social > a {
@@ -88,5 +85,3 @@
   font-size:13px;
   opacity:0.6;
 }
-
-.footer-clean {padding: 30px 0 80px 0;}
