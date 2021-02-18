@@ -4,14 +4,15 @@
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dhj0qswpc/image/upload/v1613267575/little-plant-RMXIn292QSs-unsplash_ryj3hj.jpg); width: 1520px; height: 600px; background-position: center; background-size: cover">
-        <div class="container">
+  <div class="carousel-inner position-relative">
+    <div class="container carousel-overlay">
           <h1>Dude Boards brings <strong>people</strong> together </h1>
           <p>Find the surfboard you need at any time..any city around the world.</p>
           <%= link_to "Dude Board now", surfboards_path, type: "button", class: "btn btn-primary mt-2"  %>
-        </div>
+    </div>
+    <div class="carousel-item active">
+      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dhj0qswpc/image/upload/v1613267575/little-plant-RMXIn292QSs-unsplash_ryj3hj.jpg); width: 1520px; height: 600px; background-position: center; background-size: cover">
+
       </div>
     </div>
     <div class="carousel-item">
