@@ -16,7 +16,7 @@
       <div class="row-index row">
         <% @surfboards.each do |surfboard| %>
           <div class="col-sm-12 col-md-4 ">
-            <div class="card-index" style="font-family: 'open sans', cursive; color: #0E0000">
+            <div class="card-index" style="border: 4px solid black; box-shadow: #2E2F30">
               <a href="<%= surfboard_path(surfboard) %>">
               <% if surfboard.photo.attached? %>
               <%= cl_image_tag surfboard.photo.key, height: 280, width: 312, crop: :fill %>
