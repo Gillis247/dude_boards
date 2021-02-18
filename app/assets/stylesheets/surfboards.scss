@@ -9,11 +9,14 @@
   margin-bottom: 5.5rem;
 }
 
+.container {font-family: "Oswald",sans-serif;}
+.container h1 {font-family: "Oswald",sans-serif;}
 
 .mt-2 {
   color: black;
   background-color: #d4c8be;
   border: lightgray;
+  
 
   &:hover {
     background-color: #c7c7bb;
@@ -78,6 +81,7 @@
   color: #0E0000;
   width: 160px;
   text-align: center;
+
 
 }
 
@@ -153,8 +157,8 @@
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 2px;
+  border-radius: 4.5px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 
@@ -317,6 +321,7 @@ p a{
   }
 }
 
+body {background-color: #f2fafa;}
 
 
 
