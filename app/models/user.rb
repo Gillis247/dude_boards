@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :surfboards, dependent: :destroy, inverse_of: 'owner'
   has_many :bookings, dependent: :destroy, inverse_of: 'client'
+  has_one_attached :profile_pic
 end

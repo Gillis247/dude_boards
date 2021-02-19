@@ -32,9 +32,18 @@ import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
+import * as http from "http";
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete()
 })
+
+// $(':checkbox').click(function() {
+//   const checked = $(':checkbox').prop('checked');
+//   if (checked)
+//     $('#status').html('confirmed')
+//   else
+//     $('#status').html("pending confirmation")
+// });
 

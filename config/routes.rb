@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'surfboards/search'
   get 'surfboards/not_found'
+  # get 'bookings/requests
+  get 'bookings/bookings_requests'
+
   resources :surfboards do
     resources :bookings, only: [:new, :create]
     collection do
@@ -21,7 +24,7 @@ end
 #get 'demo/index'
 #get 'demo/hello'
 #get 'demo/other_hello'
-#resources :subjects  
+#resources :subjects
 #get 'subjects/list' => 'subjects#list'
 #get 'subjects/list' => 'subjects#show'
 #get 'subjects/create' => 'subjects#create'

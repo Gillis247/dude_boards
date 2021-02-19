@@ -12,11 +12,11 @@
       <div class="main-container">
         <div class="cards">
           <div class="garden">
-              <% if @surfboard.photo.attached? %>
-              <%= cl_image_tag surfboard.photo.key, height: 280, width: 312, crop: :fill %>
-              <% else %>
+            <% if @surfboard.photo.attached? %>
+              <%= cl_image_tag @surfboard.photo.key, height: 280, width: 312, crop: :fill %>
+            <% else %>
               <%= image_tag "https://res.cloudinary.com/dhj0qswpc/image/upload/v1613352835/u6u3dr91qab0qzfvu18uj6v31agh.jpg", height: 280, width: 312, crop: :fill %>
-              <% end %>
+            <% end %>
           </div>
         </div>
         <div>
@@ -40,20 +40,14 @@
                 <%= link_to "Book it", new_user_session_path, type: "button", class: "btn btn-primary mt-2" %>
               <% end %>
               </div>
-            <div id="map" style="width: 600px; height: 600px; margin: 0 0 20px 0;"
-               data-markers="<%= @marker.to_json %>">
-                <!--     data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">-->
             </div>
-            
-            </div>
-            
-          
-          
           </div>
+        </div>
+        <div id="map" style="width: 600px; height: 600px; margin: 0 0 20px 0;"
+             data-markers="<%= @marker.to_json %>">
+          <!--     data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">-->
         </div>
       </div>
     </div>
   </div>
 </div>
-
-

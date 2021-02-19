@@ -10,6 +10,13 @@
   <% end %>
   </div>
 
+  <div>
+  <%= form_with(url: surfboards_path, method: :get, local: true) do |form| %>
+    <%= form.select :order, ["Price High to Low", "Price Low to High"] %>
+      <%= select_tag 'surfboard_id', options_for_select(@surfboards.collect{ |u| [u.location] })%>
+      <%= form.submit "Sort" %>
+  <% end%>
+  </div>
 
   <div class="album text-muted">
     <div class="container">

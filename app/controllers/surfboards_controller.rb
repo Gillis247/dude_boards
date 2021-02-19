@@ -7,6 +7,15 @@ class SurfboardsController < ApplicationController
     else
       @surfboards = Surfboard.all
     end
+
+    case params[:order]
+    when "Price High to Low"
+      @surfboards = Surfboard.order(price: :desc)
+    when "Price Low to High"
+      @surfboards = Surfboard.order(price: :asc)
+    else
+      @surfboards = Surfboard.all
+    end
     @markers = @surfboards.geocoded.map do |surfboard|
       {
         lat: surfboard.latitude,
@@ -17,14 +26,20 @@ class SurfboardsController < ApplicationController
     end
   end
 
+
+  def my_surfboards
+    @surfboards = current_user.surfboards
+    # @bookings = current_user.bookings.where("start_date > ?", DateTime.now).joins(surfboard: :owner).where(surfboards: { owner: current_user })
+  end
+
   def show
     @marker =
-  [{
-    lat: @surfboard.latitude,
-    lng: @surfboard.longitude,
-    # infoWindow: render_to_string(partial: "info_window", locals: { surfboard: surfboard }),
-    image_url: helpers.asset_url('https://www.freepik.com/vectors/icons')
-  }]
+      [{
+        lat: @surfboard.latitude,
+        lng: @surfboard.longitude,
+        # infoWindow: render_to_string(partial: "info_window", locals: { surfboard: surfboard }),
+        image_url: helpers.asset_url('https://www.freepik.com/vectors/icons')
+      }]
   end
 
   def new
@@ -65,19 +80,15 @@ class SurfboardsController < ApplicationController
   #   end
   # end
 
-  def my_surfboards
-    @surfboards = current_user.surfboards
-  end
+
 
   private
 
   def surfboard_params
-    surfboard_params = params.require(:surfboard).permit(:name, :details, :price, :photo, :location, :search)
-
+    params.require(:surfboard).permit(:name, :details, :price, :photo, :location, :search)
   end
 
   def set_surfboard
     @surfboard = Surfboard.find(params[:id])
   end
-
 end
