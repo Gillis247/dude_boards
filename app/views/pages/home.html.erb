@@ -40,7 +40,7 @@
     <div class="row-index row">
       <% @surfboards.each do |surfboard| %>
         <div class="col-sm-12 col-md-4 ">
-          <div class="card-index" style="border: 4px solid black; box-shadow: #2E2F30">
+          <div class="card-index" style="box-shadow: #2E2F30">
 
             <a href="<%= surfboard_path(surfboard) %>">
               <% if surfboard.photo.attached? %>
@@ -50,7 +50,7 @@
                 <% end %>
                 </a>
                 <div>
-              <h3><strong class="card-text_index" style="font-family: 'Londrina Solid', cursive; color: #0E0000 "><%= surfboard.name%></strong></h3>
+              <h3><strong class="card-text_index" style="box-shadow: #2E2F30, font-family: 'Londrina Solid', cursive; color: #0E0000 "><%= surfboard.name%></strong></h3>
               <!--          <a href="<%#= product_path(product) %>"><%#= image_tag("picture_holder")%><a>-->
               <p><%= surfboard.details %></p>
               <h5>£<%= surfboard.price %> per hour</h5>
