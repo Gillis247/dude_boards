@@ -68,17 +68,6 @@ class SurfboardsController < ApplicationController
     redirect_to surfboards_path
   end
 
-  # def search
-  #   search_keyword = params.fetch(:search)
-  #   # TODO if search else alert
-  #   # select * from surfboard.name LIKE '%SEARCH_KEYWORD%'
-  #   result = Surfboard.where('name ILIKE ?', "%#{search_keyword}%")
-  #   if result.present?
-  #     @surfboard = result
-  #   else
-  #     redirect_to surfboards_not_found_path
-  #   end
-  # end
 
 
 
