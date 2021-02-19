@@ -17,7 +17,15 @@ class SurfboardsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @marker =
+  [{
+    lat: @surfboard.latitude,
+    lng: @surfboard.longitude,
+    # infoWindow: render_to_string(partial: "info_window", locals: { surfboard: surfboard }),
+    image_url: helpers.asset_url('https://www.freepik.com/vectors/icons')
+  }]
+  end
 
   def new
     @surfboard = Surfboard.new

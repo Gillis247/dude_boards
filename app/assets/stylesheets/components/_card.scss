@@ -1,0 +1,74 @@
+.card:hover {
+    -ms-transform: scale(1); /* IE 9 */
+    -webkit-transform: scale(1); /* Safari 3-8 */
+    transform: scale(1.15);
+    transform: scale(1.15);
+  }
+  
+  .card {
+    float: left;
+    width: 33.333%;
+    padding: .75rem;
+    margin-bottom: 2rem;
+    border: 0;
+  }
+  
+  .card > img {
+    margin-bottom: .75rem;
+    gap: 20px;
+  }
+  
+  .card-text_index a {
+    font-size: x-large;
+    color: #0E0000;
+    width: 160px;
+    text-align: center;
+  }
+  
+  .card:hover {
+    -ms-transform: scale(1); /* IE 9 */
+    -webkit-transform: scale(1); /* Safari 3-8 */
+    transform: scale(1.05);
+  }
+  
+  .card {
+    float: left;
+    width: 33.333%;
+    padding: .75rem;
+    margin-bottom: 2rem;
+    border: 0;
+  }
+  
+  .card > img {
+    margin-bottom: .75rem;
+    gap: 20px;
+  }
+
+  .card-foot {
+    text-align: center;
+  }
+  
+  .foot {
+    color: black;
+    margin-left: 38px;
+    margin-right: 38px;
+    text-align: center;
+    display: inline-block;
+  }
+  
+  .foot a:hover {
+    border: 3px dashed lightgray;
+    text-decoration: none;
+  }
+  
+  .foot a {
+    color: black;
+  }
+  
+  .edit:hover {
+    border: lightgray;
+    font-style: italic;
+  
+    color: #0E0000;
+  }
+
