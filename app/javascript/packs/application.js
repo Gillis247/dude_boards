@@ -40,7 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete()
   initFlatpickr();
-  initConfemtti();
+  //initConfemtti();
 })
 
 // $(':checkbox').click(function() {
