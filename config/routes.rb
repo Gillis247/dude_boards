@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'surfboards/not_found'
   # get 'bookings/requests
   get 'bookings/bookings_requests'
+  get  'surfboards/gotcha'
+
 
   resources :surfboards do
     resources :bookings, only: [:new, :create]

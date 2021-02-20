@@ -7,14 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Starting seed...."
 
-gillis = User.create!(email: "gillis12@mail.com", password: "123456")
+oday = User.create!(email: "oday@mail.com", password: "123456")
 roberto = User.create!(email: "roberto12@mail.com", password: "123456")
 
 Surfboard.create!(name: "X-5000", details: "Rent my pro board now", price: 15,
-  available: true, location: "Venice Beach", user: gillis)
+  available: true, location: "Venice Beach", user: oday)
 
 Surfboard.create!(name: "Oklay", details: "I got sick surfboard you can rent", price: 13,
-  available: true, location: "Miami Beach", user: gillis)
+  available: true, location: "Miami Beach", user: oday)
 
 Surfboard.create!(name: "Nike Boost", details: "Rent a perfect beginner board", price: 10,
   available: false, location: "Barcelona Beach", user: roberto)
