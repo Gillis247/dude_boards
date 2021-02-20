@@ -1,46 +1,45 @@
 <div class="container pt-4">
   <div class="row justify-content-center">
-    <div class="col-4">
-      <div class="main-container card-index">
+    <div class="col">
+      <div class="main-container">
         <div class="cards">
-          <div>
+          <div class="garden">
             <% if @surfboard.photo.attached? %>
-              <%= cl_image_tag @surfboard.photo.key, class: "card-image-index", height: 280, width: 322, crop: :fill %>
+              <%= cl_image_tag @surfboard.photo.key, height: 280, width: 312, crop: :fill %>
             <% else %>
               <%= image_tag "https://res.cloudinary.com/dhj0qswpc/image/upload/v1613352835/u6u3dr91qab0qzfvu18uj6v31agh.jpg", height: 280, width: 312, crop: :fill %>
             <% end %>
           </div>
         </div>
         <div>
-          <strong class="card-text" style="box-shadow: #2E2F30; font-family: 'Londrina Solid', cursive; color: #0E0000 "><%= @surfboard.name %></strong>
+          <strong class="card-text" style="font-family: 'Londrina Solid', cursive; color: #0E0000 "><%= @surfboard.name %></strong>
           <!--          <a href="<%#= product_path(product) %>"><%#= image_tag("picture_holder")%><a>-->
           <p><%= @surfboard.details %></p>
           <% @surfboard.price %>
           <%= @surfboard.location %>
           <div>
             <div>
+              <i class="fas fa-edit"><%= link_to "Edit me", edit_surfboard_path(@surfboard) %></i>
               <div>
+                <i class="fas fa-edit"><%= link_to "Delete me", surfboard_path(@surfboard), method: :delete, data: { confirm: "You sure?" } %></i>
+              </div>
+              <% if user_signed_in? %>
+                <div class="navbar-cocktail">
+                  <%= link_to "Book it", new_surfboard_booking_path(@surfboard), type: "button", class: "btn btn-primary mt-2" %>
+                </div>
+                <div style="font-family: 'Pacifico', cursive;">
+              <% else %>
+                <%= link_to "Book it", new_user_session_path, type: "button", class: "btn btn-primary mt-2" %>
+              <% end %>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <% if user_signed_in? %>
-        <div class="navbar-cocktail">
-          <%= link_to "Book it", new_surfboard_booking_path(@surfboard), type: "button", class: "btn btn-primary mt-2 btn-lg btn-block" %>
+        <div id="map" style="width: 600px; height: 600px; margin: 0 0 20px 0;"
+             data-markers="<%= @marker.to_json %>">
         </div>
-        <div style="font-family: 'Pacifico', cursive;">
-      <% else %>
-        <%= link_to "Book it", new_user_session_path, type: "button", class: "btn btn-primary mt-2 btn-lg btn-block" %>
-      <% end %>
-      </div>
-    </div>
-    <%= link_to "Delete me", surfboard_path(@surfboard),method: :delete,
-                data: { confirm: "Please press ok if you want to cancel your booking or cancel to go back to your booking" }  %>
-    <div class="col-6">
-      <div id="map" style="width: 600px; height: 600px; margin: 0 0 20px 0;"
-           data-markers="<%= @marker.to_json %>">
       </div>
     </div>
   </div>
 </div>
+
