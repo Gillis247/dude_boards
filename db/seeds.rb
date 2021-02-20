@@ -20,7 +20,7 @@ Surfboard.create!(name: "Nike Boost", details: "Rent a perfect beginner board", 
   available: false, location: "Barcelona Beach", user: roberto)
 
 Surfboard.create!(name: "Le Wagon", details: "Surf like you surf the web, super-easy", price: 19,
-  available: true, location: "Shorditch cannel", user: roberto)
+  available: true, location: "Shoreditch cannel", user: roberto)
 
 Surfboard.create!(name: "Quicksilver Madness", details: "Advanced surfboard for pros", price: 25,
   available: false, location: "Tulum Beach", user: roberto)

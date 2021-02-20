@@ -1,0 +1,25 @@
+.button1{
+    border: none;
+    background: #d4c8be;
+    color: black;
+    font-weight: 100;
+    padding: 20px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    width: 250px;
+    text-align: center;
+    text-decoration: none !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.button1:hover{
+    color:white;
+    cursor: pointer;
+}
+
+h1{
+    padding:30px;
+    text-align: center;
+}

@@ -9,6 +9,8 @@
       <div class="col-8">
         <% @current_bookings.each do |my_booking| %>
           <%= render 'shared/booking', my_booking: my_booking %>
+        <% @current_bookings.each do |booking| %>
+          <%= render 'shared/booking', booking: booking, surfboard: booking.surfboard %>
         <% end %>
       </div>
     </div>
@@ -21,7 +23,7 @@
     <div class="row justify-content-center">
       <div class="col-8">
         <% @old_bookings.each do |booking| %>
-          <%= render 'shared/booking', booking: booking %>
+          <%= render 'shared/booking', booking: booking, surfboard: booking.surfboard %>
         <% end %>
       </div>
     </div>
