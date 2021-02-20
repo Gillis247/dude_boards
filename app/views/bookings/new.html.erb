@@ -1,12 +1,34 @@
-<div class="container">
 <h1>New booking for <%= @surfboard.name %></h1>
-  <%= simple_form_for [@surfboard, @booking] do |f| %>
-    <%= f.label :book_your_dates %>
-    <%= f.datetime_select :start_date %>
-    <%= f.datetime_select :end_date %>
-    <%= f.submit "book", class: "btn btn-primary mt-2" %>
+<div class="main">
+
+  <div class="flex-child magenta card">
+  <div class= "picture">
+   <% if @surfboard.photo.attached? %>
+    <%=  cl_image_tag @surfboard.photo.key, height: 1000, width: 300, crop: :fill, class:"picture" %>
+              <% else %>
+              <%= image_tag "https://res.cloudinary.com/dhj0qswpc/image/upload/v1613352835/u6u3dr91qab0qzfvu18uj6v31agh.jpg", height: 550, width: 312, crop: :fill %>
+              <% end %>
+  </div>
+  </div>
+  
+  
+
+<div class="calendar">
+  <div class="calendar__picture">
+    <h2>BOOKING REQUEST</h2>
+  </div>
+  <div >
+    
+    <%= simple_form_for [@surfboard, @booking] do |f| %>
+    <%# <%= f.label :book_your_dates %>
+    <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+    <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+    <%= f.submit "Let's Surf", class: "button2" %>
   <% end %>
+
+  </div>
+</div>
 </div>
 
-
-
+   
+  
