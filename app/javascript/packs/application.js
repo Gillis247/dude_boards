@@ -30,6 +30,8 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { initFlatpickr } from "../plugins/flatpickr";
+import { initConfemtti } from "../plugins/confetti";
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
 import * as http from "http";
@@ -37,6 +39,8 @@ import * as http from "http";
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete()
+  initFlatpickr();
+  initConfemtti();
 })
 
 // $(':checkbox').click(function() {
