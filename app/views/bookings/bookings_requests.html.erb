@@ -1,11 +1,11 @@
 
 <div>
   <div>
-  <% @bookings_requested.each do |booking| %>
-      <% if booking.start_date > DateTime.now %>
-  <div>
+    <% @bookings_requested.each do |booking| %>
+      <div>
+        <% if booking.start_date > DateTime.now %>
 
-          <div style="margin-top: 110px">
+          <div>
             <% if booking.surfboard.photo.attached? %>
               <%= cl_image_tag booking.surfboard.photo.key, height: 280, width: 312, crop: :fill %>
             <% else %>

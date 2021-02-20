@@ -10,40 +10,39 @@
   <% end %>
   </div>
 
-  <div class="filter-cards">
+  <div>
   <%= form_with(url: surfboards_path, method: :get, local: true) do |form| %>
     <%= form.select :order, ["Price High to Low", "Price Low to High"] %>
       <%= select_tag 'surfboard_id', options_for_select(@surfboards.collect{ |u| [u.location] })%>
       <%= form.submit "Sort" %>
   <% end%>
   </div>
-<div>
+
   <div class="album text-muted">
     <div class="container">
       <div class="row-index row">
         <% @surfboards.each do |surfboard| %>
           <div class="col-sm-12 col-md-4 ">
-            <div class="card-index">
+            <div class="card-index" style="box-shadow: #2E2F30; font-family: 'Londrina Solid', cursive; color: #0E0000">
               <a href="<%= surfboard_path(surfboard) %>">
               <% if surfboard.photo.attached? %>
-              <%= cl_image_tag surfboard.photo.key ,class: "card-image-index", height: 280, width: 322, crop: :fill %>
+              <%= cl_image_tag surfboard.photo.key, height: 280, width: 312, crop: :fill %>
               <% else %>
                 <%= image_tag "https://res.cloudinary.com/dhj0qswpc/image/upload/v1613352835/u6u3dr91qab0qzfvu18uj6v31agh.jpg", height: 280, width: 312, crop: :fill %>
                 <% end %>
                 </a>
-              <div style="height: 230px">
-                <h3><strong class="card-text_index" style="box-shadow: #2E2F30; font-family: 'Londrina Solid', cursive; color: #0E0000 "><%= surfboard.name%></strong></h3>
-                <div class="foot edit" style="background-color: #d4c8be">
-                </div>                <!--          <a href="<%#= product_path(product) %>"><%#= image_tag("picture_holder")%><a>-->
+              <div>
+                <strong class="card-text_index" style="box-shadow: #2E2F30; font-family: 'Londrina Solid', cursive; color: #0E0000"><%= link_to surfboard.name, surfboard_path(surfboard) %></strong>
+                <!--          <a href="<%#= product_path(product) %>"><%#= image_tag("picture_holder")%><a>-->
                 <p><%= surfboard.details %></p>
                 <h5>£<%= surfboard.price %> per hour</h5>
-                <h5 style="height: 42px"><%= surfboard.location %></h5>
-                <% if surfboard.owner.profile_pic.attached? %>
-                  <%= cl_image_tag current_user.profile_pic.key, class: "avatar dropdown-toggle card-image", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
-                <% else %>
-                  <%= image_tag %w[https://kitt.lewagon.com/placeholder/users/odayadli https://kitt.lewagon.com/placeholder/users/gelllery2395 https://kitt.lewagon.com/placeholder/users/Gillis247].sample, class: "avatar dropdown-toggle card-image1", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                <% end %>
+                <h5><%= surfboard.location %></h5>
+
                 <div class="card-foot">
+                  <div class="foot edit" style="background-color: #d4c8be">
+                  <%=link_to surfboard.name, surfboard_path(surfboard)%>
+                    <i class="fas fa-edit"><%= link_to "Edit me", edit_surfboard_path(surfboard) %></i>
+                  </div>
                 </div>
               </div>
             </div>
@@ -58,11 +57,11 @@
   </div>
 
   <div id="map"
-       style="width: 100%; height: 600px; position: relative; top: 160px;  border-radius: 15px 15px;"
+       style="width: 100%; height: 600px;"
        data-markers="<%= @markers.to_json %>">
   </div>
 </div>
-</div>
+
 
 
 
