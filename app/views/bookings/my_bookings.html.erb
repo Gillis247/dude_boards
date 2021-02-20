@@ -1,14 +1,14 @@
 
 
-<div class="container">
-  <h1>My Bookings</h1>
+<div class="container" style="margin-top: 110px">
+  <h1 style="position: fixed; z-index: 1">My Bookings</h1><br><br>
   <h3><%= @current_bookings.count %> current booking<%= @current_bookings.count == 1 ? '' : 's' %></h3><br><br>
 
   <div>
     <div class="row justify-content-center">
       <div class="col-8">
-        <% @current_bookings.each do |booking| %>
-          <%= render 'shared/booking', booking: booking %>
+        <% @current_bookings.each do |my_booking| %>
+          <%= render 'shared/booking', my_booking: my_booking %>
         <% end %>
       </div>
     </div>

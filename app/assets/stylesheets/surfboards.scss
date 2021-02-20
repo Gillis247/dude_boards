@@ -102,7 +102,7 @@
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 2px;
+  box-shadow: #2E2F30; font-family: 'Londrina Solid', cursive; color: #0E0000; border-radius: 15px
 }
 
 
@@ -166,6 +166,11 @@ p a{
   position: absolute;
   left: 177px;
   top: 600px;
+}
+
+.explore{
+  position: relative;
+  justify-content: center;
 }
 
 @media screen and (min-width: 375px) and (max-width: 400px) {
@@ -264,11 +269,15 @@ p a{
     margin: 0 auto;
   }
 }
+//
+//body {
+//  background-color: f2fafa;
+//}
 
-body {
-  background-color: f2fafa;
+.filter-cards{
+  margin-top: 46px;
+  text-align: center;
 }
-
 
 #CALENDAR
 body {
@@ -278,7 +287,7 @@ body {
   align-items: center;
   height: 100vh;
   font-family: 'Poppins', sans-serif;
-  background: url("https://images.unsplash.com/photo-1468254689784-48093691071d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1122&q=80")
+  background: url("https://images.unsplash.com/photo-1468254689784-48093691071d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1122&q=80");
   &::before {
     content: "";
     position: absolute;
@@ -375,3 +384,11 @@ body {
   }
 }
 
+.card-image1{
+  position: relative;
+  left: 276px;
+}
+
+.card-image-index{
+  border-radius: 10px;
+}
