@@ -31,7 +31,7 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initFlatpickr } from "../plugins/flatpickr";
-import { initConfemtti } from "../plugins/confetti";
+//import { initConfemtti } from "../plugins/confetti";
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
 import * as http from "http";
